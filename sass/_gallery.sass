@@ -1,0 +1,28 @@
+//ПАРАМЕТРЫ ГАЛЕРЕИ ИЗОБРАЖЕНИЙ
+.photos
+	position: relative
+	width: 100%
+.carusel
+	overflow: hidden
+.spiner
+	transform-style: preserve-3d
+	height: 100%
+	margin: 0 auto
+	transition: .5s
+.album
+	+fullSize
+	position: absolute
+	overflow: hidden
+	backface-visibility: hidden
+	ul
+		+fullSize
+		transform-style: preserve-3d
+		transition: .5s
+		position: relative
+		li
+			backface-visibility: hidden
+			position: absolute
+			+fullSize
+			background-size: auto 100%
+			background-position: center
+			background-repeat: no-repeat

@@ -1,0 +1,85 @@
+//ПАРАМЕТРЫ БЛОКА НАВИГАЦИИ
+
+.navigation
+	position: absolute
+	+menuSize($size)
+	bottom: 3%
+	right: 3%
+
+.inside-navigation
+	display: flex
+	flex-flow: row wrap
+	align-items: center
+	justify-content: space-between
+	+fullSize
+	>div
+		display: flex
+		align-items: center
+		justify-content: center
+.next-item,.prev-item
+	flex-basis: 100%
+.click
+	+effects(.5,.2s,.1s)
+	+menuSize($size/4)
+	box-shadow: 0 0 0 .6rem rgba(0,0,0,.8)
+	font-size: 2rem
+	border-radius: 50%
+.fixed 
+	button
+		+menuSize($size/6)
+		box-shadow: 0 0 0 .5rem rgba(0,0,0,.8)
+		border-radius: 50%
+
+.outside-navigation
+	position: fixed
+	+margin(35%)
+	height: 100%
+	top: 0
+.choose-city
+	+effects(.5,.2s,.1s)
+	position: absolute
+	width: 100%
+	display: flex
+	flex-flow: column nowrap
+	overflow: hidden
+
+	button
+		padding: .3rem
+		display: block
+		height: 1rem
+		width: 100%
+		background-color: (0,0,0,.7)
+		font-size: 1.5rem
+		font-family: impact
+		color: transparent
+		+effects(1,.2s,.1s)
+		transition-timing-function: ease-out
+
+.cities-list
+	background-color: rgba(0,0,0,.7)
+	height: 0
+	overflow: hidden
+	display: flex
+	flex-flow: row nowrap
+	justify-content: space-around
+	align-items: center
+	width: 100%
+	+effects(1,.5s,.7s)
+	padding: 0 5%
+	li
+		+menuSize(1.3rem)
+		background-color: #e9c25d
+		border: 3rem solid rgba(255,255,255,.9)
+		cursor: pointer
+.next-city
+	top: 0
+	border-radius: 0 0 3rem 3rem
+.prev-city
+	bottom: 0
+	border-radius: 3rem 3rem 0 0
+
+
+
+
+
+
