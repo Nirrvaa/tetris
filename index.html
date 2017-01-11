@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,112 +11,65 @@
 	<script src="js/common.js" defer></script>
 </head>
 <body>
+	
 	<section class="viktorina_wrapper">
+		
 		<section class="photos">
-			<div id="carusel">
-					<ul id="spiner">
+			<div id="carusel" class="carusel">
+					<ul id="spiner" class="spiner">
 						<li class="album">
 							<ul>
 								<li></li>
-								<li></li>
-								<li></li>
 							</ul>
 						</li>
-						<li class="album">
-							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</li>
-						<li class="album">
-							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</li>
-						<li class="album">
-							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</li>
-						<li class="album">
-							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</li>
-
 					</ul>
 			</div>
-			<nav class="navigation">
-				<section class="inside-navigation">
-				<div id="next-item"><button class="click" title="Следующий памятник">&#9650;</button></div>
-					
-
-					<div id="prev-photo"><button class="click" title="Предыдущее фото">&#9664;</button></div>
-					<div class="fixed" data-state='hidden'><button>&#128274;</button></div>
-					<div id="next-photo"><button class="click" title="Следующее фото">&#9654;</button></div>
-					
-					<div id="prev-item"><button class="click" title="Предыдущий памятник">&#9660;</button></div>
-				</section>
-				<section class="outside-navigation">
-					
-					<div id="next-city" class="choose-city">
-						
-						<button>Следующий город</button>
-						<ul class="city-list">
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ul>
-					</div>
-					<div id="prev-city"  class="choose-city">
-					<ul class="city-list">
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ul>
-					<button>Предыдущий город</button>
-					
-					</div>
-				</section>
-				<section class="middle-navigation">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</section>
-				</nav>
 		</section>
+		
+		<nav class="navigation">
+						<section class="inside-navigation">
+							<div id="next-item"><button class="click" title="Следующий памятник">&#9650;</button></div>
+							<div id="prev-photo"><button class="click" title="Предыдущее фото">&#9664;</button></div>
+							<div class="fixed" data-state='hidden'><button>&#128274;</button></div>
+							<div id="next-photo"><button class="click" title="Следующее фото">&#9654;</button></div>
+							<div id="prev-item"><button class="click" title="Предыдущий памятник">&#9660;</button></div>
+						</section>
+						<section class="outside-navigation">
+							<div id="next-city" class="choose-city">
+								<button>Следующий город</button>
+								<ul class="city-list">
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul>
+							</div>
+							<div id="prev-city"  class="choose-city">
+								<ul class="city-list">
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+								</ul>
+								<button>Предыдущий город</button>
+							</div>
+						</section>
+		</nav>
+		
 		<section class="side-panel description">
-		<header class="show border-radius">описание<br>герба</header>
+			<header class="show border-radius">описание<br>герба</header>
 			<article class="content">
 				<header>Название памятника</header>
 					<p>
@@ -126,6 +81,7 @@
 			
 			<div class="hide">Cкрыть</div>
 		</section>
+
 		<section class="side-panel answers">
 			<header class="show border-radius">варианты<br>ответа</header>
 				<section class="content">
@@ -151,7 +107,9 @@
 					</section>
 				</section>
 				<div class="hide">Cкрыть</div>
-
+		</section>
+	
 	</section>
+
 </body>
 </html>
