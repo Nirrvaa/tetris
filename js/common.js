@@ -1,173 +1,163 @@
 'use strict';
 
-var tetris = document.querySelector('.tetris');
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var x = 10,
-    y = 20;
+var photos = document.querySelector('.photos');
+var carusel = document.querySelector('#carusel');
+var spiner = document.querySelector('#spiner');
+var list = spiner.querySelectorAll('.album');
+var description = document.querySelector('.description');
+var answers = document.querySelector('.answers');
+var navigation = document.querySelector('.navigation');
+var insideNavigation = document.querySelectorAll('.inside-navigation .click');
+var outsideNavigation = document.querySelectorAll('.outside-navigation div');
+var fixBtn = document.querySelector('.fixed');
 
-for (var i = 0; i < y; i++) {
-	for (var j = 0; j < x; j++) {
-		var cell = document.createElement('div');
-		cell.classList.add('cell');
-		cell.setAttribute('data-coordinateX', j);
-		cell.setAttribute('data-coordinateY', i);
-		tetris.appendChild(cell);
+window.onresize = function (e) {
+	photos.style.height = document.documentElement.clientHeight + 'px';
+	carusel.style.height = document.documentElement.clientHeight + 'px';
+};
+photos.style.height = document.documentElement.clientHeight + 'px';
+carusel.style.height = document.documentElement.clientHeight + 'px';
+
+spiner.setAttribute('style', 'transform-origin: 50% 50% -' + zTranslate(list[0], list, 'vertical') + 'px;');
+
+/*
+list.forEach(function(item, i) {
+	item.setAttribute("style", "transform: rotateX(" + (360/list.length)*i + "deg); transform-origin: 50% 50% -"  +  zTranslate(list[0],list,'vertical') + "px;");
+	let album = item.querySelectorAll('ul li');
+	album.forEach(function(it,j) {
+		it.setAttribute("style", "transform: rotateY(" + (360/album.length)*j + "deg); transform-origin: 50% 50% -"  +  zTranslate(album[0],album) + "px;");
+	});
+});
+*/
+
+description.addEventListener('click', function (event) {
+	var target = event.target;
+	do {
+		if (!(target.classList.contains('show') || target.classList.contains('hide')) || target.classList.contains('side-panel')) {
+			return;
+		}
+		target = target.parentNode;
+	} while (target != this);
+	show(this);
+	freeze2(this);
+});
+
+answers.addEventListener('click', function (event) {
+	var target = event.target;
+	do {
+		if (!(target.classList.contains('show') || target.classList.contains('hide')) || target.classList.contains('side-panel')) {
+			return;
+		}
+		target = target.parentNode;
+	} while (target != this);
+	show(this);
+	freeze2(this);
+
+	if (navigation.classList.contains('moved')) {
+		navigation.classList.remove('moved');
+	} else {
+		navigation.classList.add('moved');
 	}
-}
-var field = document.querySelectorAll('.cell');
+});
 
-var shapes = [function tPart(field, X, Y, stop) {
-	field.forEach(function (item, i) {
-		var coordX = item.getAttribute('data-coordinateX');
-		var coordY = item.getAttribute('data-coordinateY');
-		var mainPart = coordX == X && coordY == Y + 1;
-		var topPart = coordX == X && coordY == Y;
-		var leftPart = coordX == X - 1 && coordY == Y;
-		var rightPart = coordX == X + 1 && coordY == Y;
-		if (mainPart || topPart || leftPart || rightPart) {
-			item.classList.add('t-unit');
-			if (stop) {
-				item.classList.add('stone');
-			}
-		} else {
-			item.classList.remove('t-unit');
+fixBtn.addEventListener('click', function (event) {
+	var value = this.getAttribute('data-state');
+	if (value == 'hidden') {
+		freeze.apply(undefined, _toConsumableArray(outsideNavigation).concat([answers, description], _toConsumableArray(insideNavigation)));
+		this.setAttribute('data-state', 'half-access');
+	} else if (value == 'half-access') {
+		fullAccess.apply(undefined, _toConsumableArray(description.children).concat(_toConsumableArray(answers.children)));
+		if (!navigation.classList.contains('moved')) {
+			navigation.classList.add('moved');
 		}
-	});
-	return 1;
-}, function iPart(field, X, Y, stop) {
-	field.forEach(function (item, i) {
-		var coordX = item.getAttribute('data-coordinateX');
-		var coordY = item.getAttribute('data-coordinateY');
-		var mainPart = coordX == X && coordY == Y;
-		var topPart = coordX == X - 1 && coordY == Y;
-		var bottomPart1 = coordX == X + 1 && coordY == Y;
-		var bottomPart2 = coordX == X + 2 && coordY == Y;
-		if (mainPart || topPart || bottomPart1 || bottomPart2) {
-			item.classList.add('l-unit');
-			if (stop) {
-				item.classList.add('stone');
-			}
-		} else {
-			item.classList.remove('l-unit');
+		this.setAttribute('data-state', 'full-access');
+	} else if (value == 'full-access') {
+		fullAccess.apply(undefined, _toConsumableArray(description.children).concat(_toConsumableArray(answers.children)));
+		freeze.apply(undefined, _toConsumableArray(outsideNavigation).concat([answers, description], _toConsumableArray(insideNavigation)));
+		if (navigation.classList.contains('moved')) {
+			navigation.classList.remove('moved');
 		}
-	});
-	return 0;
-}, function jPart(field, X, Y, stop) {
-	field.forEach(function (item, i) {
-		var coordX = item.getAttribute('data-coordinateX');
-		var coordY = item.getAttribute('data-coordinateY');
-		var mainPart = coordX == X && coordY == Y + 1;
-		var topPart = coordX == X && coordY == Y;
-		var bottomPart = coordX == X && coordY == Y + 2;
-		var leftPart = coordX == X - 1 && coordY == Y + 2;
-		if (mainPart || topPart || bottomPart || leftPart) {
-			item.classList.add('j-unit');
-			if (stop) {
-				item.classList.add('stone');
-			}
-		} else {
-			item.classList.remove('j-unit');
-		}
-	});
-	return 2;
-}, function lPart(field, X, Y, stop) {
-	field.forEach(function (item, i) {
-		var coordX = item.getAttribute('data-coordinateX');
-		var coordY = item.getAttribute('data-coordinateY');
-		var mainPart = coordX == X && coordY == Y + 1;
-		var topPart = coordX == X && coordY == Y;
-		var bottomPart = coordX == X && coordY == Y + 2;
-		var rightPart = coordX == X + 1 && coordY == Y + 2;
-		if (mainPart || topPart || bottomPart || rightPart) {
-			item.classList.add('l-unit');
-			if (stop) {
-				item.classList.add('stone');
-			}
-		} else {
-			item.classList.remove('l-unit');
-		}
-	});
-	return 2;
-}, function oPart(field, X, Y, stop) {
-	field.forEach(function (item, i) {
-		var coordX = item.getAttribute('data-coordinateX');
-		var coordY = item.getAttribute('data-coordinateY');
-		var mainPart = coordX == X && coordY == Y + 1;
-		var topPart1 = coordX == X && coordY == Y;
-		var topPart2 = coordX == X + 1 && coordY == Y;
-		var rightPart = coordX == X + 1 && coordY == Y + 1;
-		if (mainPart || topPart1 || topPart2 || rightPart) {
-			item.classList.add('o-unit');
-			if (stop) {
-				item.classList.add('stone');
-			}
-		} else {
-			item.classList.remove('o-unit');
-		}
-	});
-	return 1;
-}, function sPart(field, X, Y, stop) {
-	field.forEach(function (item, i) {
-		var coordX = item.getAttribute('data-coordinateX');
-		var coordY = item.getAttribute('data-coordinateY');
-		var mainPart = coordX == X && coordY == Y;
-		var rightPart = coordX == X + 1 && coordY == Y;
-		var bottomPart = coordX == X && coordY == Y + 1;
-		var leftPart = coordX == X - 1 && coordY == Y + 1;
-		if (mainPart || rightPart || bottomPart || leftPart) {
-			item.classList.add('s-unit');
-			if (stop) {
-				item.classList.add('stone');
-			}
-		} else {
-			item.classList.remove('s-unit');
-		}
-	});
-	return 1;
-}, function zPart(field, X, Y, stop) {
-	field.forEach(function (item, i) {
-		var coordX = item.getAttribute('data-coordinateX');
-		var coordY = item.getAttribute('data-coordinateY');
-		var mainPart = coordX == X && coordY == Y;
-		var rightPart = coordX == X + 1 && coordY == Y + 1;
-		var bottomPart = coordX == X && coordY == Y + 1;
-		var leftPart = coordX == X - 1 && coordY == Y;
-		if (mainPart || rightPart || bottomPart || leftPart) {
-			item.classList.add('z-unit');
-			if (stop) {
-				item.classList.add('stone');
-			}
-		} else {
-			item.classList.remove('z-unit');
-		}
-	});return 1;
-}];
+		this.setAttribute('data-state', 'hidden');
+	}
+});
 
-function randomInteger(min, max) {
-	var rand = min + Math.random() * (max + 1 - min);
-	rand = Math.floor(rand);
-	return rand;
-}
+function show(element) {
+	if (element.classList.contains('opened')) {
+		Array.prototype.forEach.call(element.children, function (item, i) {
 
-function building(random, array) {
-	var rand = random(0, array.length - 1);
-	var q = 0;
-	var interval = setInterval(function () {
-		var stop = array[rand];
-		q++;
-		field.forEach(function (item, i) {
-			var coordX = item.getAttribute('data-coordinateX');
-			var coordY = item.getAttribute('data-coordinateY');
-			if (coordX == 4 && coordY == q + 1 && item.classList.contains('stone')) {
-				stop(field, 4, q - 1, true);
+			if (item.classList.contains('content')) {
+				item.style.transform = "rotateY(90deg)";
+			}
+			if (item.classList.contains('hide')) {
+				item.style.transform = "rotateY(90deg)";
+			}
+			if (item.classList.contains('show')) {
+				item.classList.add('border-radius');
+				item.classList.remove('full-width');
 			}
 		});
-		if (q == y - stop(field, 4, q - 1)) {
-			stop(field, 4, q - 1, true);
-			clearInterval(interval);
-			building(random, array);
-		}
-	}, 100);
+
+		element.classList.remove('opened');
+	} else {
+		Array.prototype.forEach.call(element.children, function (item, i) {
+
+			if (item.classList.contains('content')) {
+				item.style.transform = "rotateY(0deg)";
+			}
+			if (item.classList.contains('hide')) {
+				item.style.transform = "rotateY(0deg)";
+			}
+			if (item.classList.contains('show')) {
+				item.classList.remove('border-radius');
+				item.classList.add('full-width');
+			}
+		});
+
+		element.classList.add('opened');
+	}
 }
 
-building(randomInteger, shapes);
+function freeze() {
+	arguments.forEach = Array.prototype.forEach;
+	arguments.forEach(function (item, i) {
+		if (item.classList.contains('visible')) {
+			item.classList.remove('visible');
+		} else {
+			item.classList.add('visible');
+		}
+	});
+}
+
+function freeze2() {
+	arguments.forEach = Array.prototype.forEach;
+	arguments.forEach(function (item, i) {
+		if (item.classList.contains('visible2')) {
+			item.classList.remove('visible2');
+		} else {
+			item.classList.add('visible2');
+		}
+	});
+}
+
+function zTranslate(child, parent, orientation) {
+	var parameter = void 0;
+	if (orientation == 'vertical') {
+		parameter = child.scrollHeight;
+	} else {
+		parameter = child.scrollWidth;
+	}
+	return parameter / 2 * Math.tan((90 - 180 / parent.length) / 57.2958);
+};
+
+function fullAccess() {
+	arguments.forEach = Array.prototype.forEach;
+	arguments.forEach(function (item, i) {
+		if (item.classList.contains('full-access')) {
+			item.classList.remove('full-access');
+		} else {
+			item.classList.add('full-access');
+		}
+	});
+}

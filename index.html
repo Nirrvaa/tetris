@@ -1,12 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>tetris</title>
+	<title>Назови город по фото</title>
+	
+	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/main.css">
 	<script src="js/common.js" defer></script>
 </head>
 <body>
-	<section class="tetris"></section>
+	<section class="viktorina_wrapper">
+		<section class="photos">
+			<div id="carusel">
+					<ul id="spiner">
+						<li class="album">
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</li>
+						<li class="album">
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</li>
+						<li class="album">
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</li>
+						<li class="album">
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</li>
+						<li class="album">
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</li>
+
+					</ul>
+			</div>
+			<nav class="navigation">
+				<section class="inside-navigation">
+				<div id="next-item"><button class="click" title="Следующий памятник">&#9650;</button></div>
+					
+
+					<div id="prev-photo"><button class="click" title="Предыдущее фото">&#9664;</button></div>
+					<div class="fixed" data-state='hidden'><button>&#128274;</button></div>
+					<div id="next-photo"><button class="click" title="Следующее фото">&#9654;</button></div>
+					
+					<div id="prev-item"><button class="click" title="Предыдущий памятник">&#9660;</button></div>
+				</section>
+				<section class="outside-navigation">
+					
+					<div id="next-city" class="choose-city">
+						
+						<button>Следующий город</button>
+						<ul class="city-list">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+					<div id="prev-city"  class="choose-city">
+					<ul class="city-list">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					<button>Предыдущий город</button>
+					
+					</div>
+				</section>
+				<section class="middle-navigation">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+				</nav>
+		</section>
+		<section class="side-panel description">
+		<header class="show border-radius">описание<br>герба</header>
+			<article class="content">
+				<header>Название памятника</header>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio unde eveniet nesciunt asperiores quisquam, ullam quibusdam distinctio, quis, cum deserunt dolore? Voluptatibus assumenda consectetur magnam quod, eligendi excepturi voluptatum quibusdam. <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus facere voluptatibus ullam eum commodi, enim officia eos distinctio labore fugit itaque, modi quam fugiat minus qui illo, omnis error neque?</span>
+						<span>Assumenda voluptates ad sunt commodi veritatis corporis natus repudiandae facilis fugit magnam sed, itaque praesentium officiis iusto maxime, et fugiat. Ex beatae, dignissimos aperiam molestias excepturi quae facilis officia eligendi.</span>
+						<span>Perferendis perspiciatis ex rem unde incidunt laboriosam architecto. Ratione aperiam tempore optio blanditiis voluptatem eius, sunt, enim odit illum eaque saepe fuga consequatur, eum dolores repellendus! Iusto ratione a asperiores.</span>
+					</p>
+			</article>
+			
+			<div class="hide">Cкрыть</div>
+		</section>
+		<section class="side-panel answers">
+			<header class="show border-radius">варианты<br>ответа</header>
+				<section class="content">
+					<header>Выберите вариант</header>
+					<section class="list">
+						<ul>
+							<li><button>answer1</button></li>
+							<li><button>answer2</button></li>
+							<li><button>answer3</button></li>
+							<li><button>answer4</button></li>
+							<li><button>answer5</button></li>
+							<li><button>answer6</button></li>
+							<li><button>answer7</button></li>
+							<li><button>answer8</button></li>
+							<li><button>answer9</button></li>
+							<li><button>answer10</button></li>
+							<li><button>answer11</button></li>
+							<li><button>answer12</button></li>
+							<li><button>answer13</button></li>
+							<li><button>answer14</button></li>
+							<li><button>answer15</button></li>
+						</ul>
+					</section>
+				</section>
+				<div class="hide">Cкрыть</div>
+
+	</section>
 </body>
 </html>
