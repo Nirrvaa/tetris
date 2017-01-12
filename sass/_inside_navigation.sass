@@ -7,10 +7,14 @@
 	justify-content: space-between
 	z-index: 20
 	+menuSize($size)
+	+effects(1,.5s,.2s)
+	transition-timing-function: ease-in
 	bottom: 3%
 	right: 3%
 	position: absolute
-
+	&.change-view
+		bottom: 13%
+		right: 23%
 	>div
 		display: flex
 		align-items: center
@@ -30,3 +34,4 @@
 		+menuSize($size/6)
 		box-shadow: 0 0 0 .5rem rgba(0,0,0,.8)
 		border-radius: 50%
+		cursor: pointer

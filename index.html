@@ -27,17 +27,17 @@
 		</section>
 		
 		<nav class="navigation">
-						<section class="inside-navigation">
-							<div class="next-item"><button class="click" title="Следующий памятник">&#9650;</button></div>
-							<div class="prev-photo"><button class="click" title="Предыдущее фото">&#9664;</button></div>
-							<div class="fixed" data-state='hidden'><button>&#128274;</button></div>
-							<div class="next-photo"><button class="click" title="Следующее фото">&#9654;</button></div>
-							<div class="prev-item"><button class="click" title="Предыдущий памятник">&#9660;</button></div>
+						<section class="inside-navigation" data-position="0">
+							<div class="next-item"><button class="click" data-opacity="0" data-opacity="0" title="Следующий памятник">&#9650;</button></div>
+							<div class="prev-photo"><button class="click" data-opacity="0" title="Предыдущее фото">&#9664;</button></div>
+							<div class="fixed" data-value='0' id="fixed"><button>&#128274;</button></div>
+							<div class="next-photo"><button class="click" data-opacity="0" title="Следующее фото">&#9654;</button></div>
+							<div class="prev-item"><button class="click" data-opacity="0" title="Предыдущий памятник">&#9660;</button></div>
 						</section>
 						<section class="outside-navigation">
-							<div id="next-city" class="next-city choose-city">
-								<button>Следующий город</button>
-								<ul class="cities-list">
+							<div id="next-city" class="next-city choose-city" data-opacity="0">
+								<button data-visibility="0">Следующий город</button>
+								<ul class="cities-list" data-position="0">
 									<li></li>
 									<li></li>
 									<li></li>
@@ -50,8 +50,8 @@
 									<li></li>
 								</ul>
 							</div>
-							<div id="prev-city"  class="prev-city choose-city">
-								<ul class="cities-list">
+							<div id="prev-city"  class="prev-city choose-city" data-opacity="0">
+								<ul class="cities-list" data-position="0">
 										<li></li>
 										<li></li>
 										<li></li>
@@ -62,15 +62,16 @@
 										<li></li>
 										<li></li>
 										<li></li>
+										
 								</ul>
-								<button>Предыдущий город</button>
+								<button data-visibility="0">Предыдущий город</button>
 							</div>
 						</section>
 		</nav>
 		
 		<section class="side-panel description">
-			<header class="show border-radius">описание<br>герба</header>
-			<article class="content">
+			<header class="show"  data-opacity="0" data-position="0">описание<br>герба</header>
+			<article class="content" data-position="0">
 				<header>Название памятника</header>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio unde eveniet nesciunt asperiores quisquam, ullam quibusdam distinctio, quis, cum deserunt dolore? Voluptatibus assumenda consectetur magnam quod, eligendi excepturi voluptatum quibusdam. <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus facere voluptatibus ullam eum commodi, enim officia eos distinctio labore fugit itaque, modi quam fugiat minus qui illo, omnis error neque?</span>
@@ -79,12 +80,12 @@
 					</p>
 			</article>
 			
-			<div class="hide">Cкрыть</div>
+			<div class="hide" data-position="0" data-opacity="0">Cкрыть</div>
 		</section>
 
 		<section class="side-panel answers">
-			<header class="show border-radius">варианты<br>ответа</header>
-				<section class="content">
+			<header class="show"  data-opacity="0" data-position="0">варианты<br>ответа</header>
+				<section class="content" data-position="0">
 					<header>Выберите вариант</header>
 					<section class="list">
 						<ul>
@@ -106,7 +107,7 @@
 						</ul>
 					</section>
 				</section>
-				<div class="hide">Cкрыть</div>
+				<div class="hide" data-position="0" data-opacity="0">Cкрыть</div>
 		</section>
 	
 	</section>
