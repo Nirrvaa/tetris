@@ -1,0 +1,32 @@
+//Параметры навигации в пределех города
+
+.inside-navigation
+	display: flex
+	flex-flow: row wrap
+	align-items: center
+	justify-content: space-between
+	z-index: 20
+	+menuSize($size)
+	bottom: 3%
+	right: 3%
+	position: absolute
+
+	>div
+		display: flex
+		align-items: center
+		justify-content: center
+		
+.next-item,.prev-item
+	flex-basis: 100%
+.click
+	+effects(.5,.2s,.1s)
+	+menuSize($size/4)
+	box-shadow: 0 0 0 .6rem rgba(0,0,0,.8)
+	font-size: 2rem
+	border-radius: 50%
+	cursor: pointer
+.fixed 
+	button
+		+menuSize($size/6)
+		box-shadow: 0 0 0 .5rem rgba(0,0,0,.8)
+		border-radius: 50%

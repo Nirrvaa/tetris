@@ -1,1 +1,59 @@
 //Параметры боковых панелей
+.side-panel
+	display: flex
+	flex-flow: column nowrap
+	position: absolute
+	top: 0
+	height: 100%
+	width: 20%
+	+effects(.5,.5s,.2s)
+	overflow: hidden
+	
+
+.basis
+	background-color: rgba(0,0,0,.7)
+	display: flex
+	align-items: center
+	justify-content: center
+	text-transform: uppercase
+	height: 10%
+	font-family: impact
+	color: rgba(255,255,255,.7)
+	cursor: pointer
+	+effects(1,.5s,.2s)
+	overflow: hidden
+	transition-timing-function: ease-in
+
+.show
+	@extend .basis
+	width: 50%
+	font-size: 1.4rem
+.hide
+	@extend .basis
+	transform: rotatey(90deg)
+	font-size: 1.1rem
+.content
+	transform: rotateY(90deg)
+	width: 100%
+	height: 80%
+	padding: 0 5%
+	overflow: hidden
+	display: flex
+	flex-flow: column nowrap
+	+effects(1,.5s,.2s)
+	cursor: auto
+	background-color: rgba(0,0,0,.7)
+	transition-timing-function: ease-in
+	header
+		background-color: rgba(255,255,255,.7)
+		flex-basis: 10%
+		font-family: impact
+		color: #377c57
+		text-shadow: 0 0 2px #fff
+		display: flex
+		align-items: center
+		justify-content: center
+
+@import description
+
+@import answers
