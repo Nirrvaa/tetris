@@ -1,14 +1,15 @@
 //Параметрі навигации по городам
-
+.temp
+	height: 2rem
+	color: rgba(255,255,255,.7)
 .outside-navigation
 .choose-city
 	position: fixed
 	+margin($width)
-	+effects(.5,.2s,.1s)
+	+effects(1,.2s,.1s)
 	display: flex
 	flex-flow: column nowrap
 	overflow: hidden
-	cursor: pointer
 	button
 		padding: .3rem
 		display: block
@@ -18,11 +19,16 @@
 		font-size: 1.5rem
 		font-family: impact
 		color: transparent
-		+effects(1,.2s,.1s)
+		cursor: pointer
+		+effects(.5,.3s,.3s)
 		transition-timing-function: ease-out
 		&.full-size
 			height: 2rem
 			color: rgba(255,255,255,.7)
+	&:hover .cities-list, &:hover button
+		height: 2rem
+		opacity: 1
+		color: rgba(255,255,255,.7)
 .cities-list
 	background-color: rgba(0,0,0,.7)
 	height: 0
@@ -32,7 +38,7 @@
 	justify-content: space-around
 	align-items: center
 	width: 100%
-	+effects(1,.3s,.5s)
+	+effects(.5,.3s,.3s)
 	padding: 0 5%
 	&.change-view
 		height: 2rem

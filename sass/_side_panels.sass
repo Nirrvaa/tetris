@@ -29,12 +29,15 @@
 	@extend .basis
 	width: 50%
 	font-size: 1.4rem
+	&:hover
+		@extend .visible
 	&.change-view
 		width: 100%
 .hide
 	@extend .basis
 	transform: rotatey(90deg)
 	font-size: 1.1rem
+	
 	&.change-view
 		transform: rotatey(0deg)
 .content

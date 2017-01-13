@@ -8,11 +8,12 @@
 	
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/polyfill.js" defer></script>
 	<script src="js/common.js" defer></script>
 </head>
 <body>
 	
-	<section class="viktorina_wrapper">
+	<section class="viktorina_wrapper" id="wrap">
 		
 		<section class="photos">
 			<div id="carusel" class="carusel">
@@ -35,9 +36,9 @@
 							<div class="prev-item"><button class="click" data-opacity="0" title="Предыдущий памятник">&#9660;</button></div>
 						</section>
 						<section class="outside-navigation">
-							<div id="next-city" class="next-city choose-city" data-opacity="0">
-								<button data-visibility="0">Следующий город</button>
-								<ul class="cities-list" data-position="0">
+							<div id="next-city" class="next-city choose-city">
+								<button data-visibility="0" data-opacity="0">Следующий город</button>
+								<ul class="cities-list" data-position="0" data-opacity="0">
 									<li></li>
 									<li></li>
 									<li></li>
@@ -50,8 +51,8 @@
 									<li></li>
 								</ul>
 							</div>
-							<div id="prev-city"  class="prev-city choose-city" data-opacity="0">
-								<ul class="cities-list" data-position="0">
+							<div id="prev-city"  class="prev-city choose-city">
+								<ul class="cities-list" data-position="0" data-opacity="0">
 										<li></li>
 										<li></li>
 										<li></li>
@@ -64,12 +65,12 @@
 										<li></li>
 										
 								</ul>
-								<button data-visibility="0">Предыдущий город</button>
+								<button data-visibility="0" data-opacity="0">Предыдущий город</button>
 							</div>
 						</section>
 		</nav>
 		
-		<section class="side-panel description">
+		<section class="side-panel description" data-counter="0">
 			<header class="show"  data-opacity="0" data-position="0">описание<br>герба</header>
 			<article class="content" data-position="0">
 				<header>Название памятника</header>
@@ -83,7 +84,7 @@
 			<div class="hide" data-position="0" data-opacity="0">Cкрыть</div>
 		</section>
 
-		<section class="side-panel answers">
+		<section class="side-panel answers" data-counter="0">
 			<header class="show"  data-opacity="0" data-position="0">варианты<br>ответа</header>
 				<section class="content" data-position="0">
 					<header>Выберите вариант</header>
