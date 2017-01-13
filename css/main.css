@@ -21,11 +21,13 @@
   background-color: #e7a458; }
 
 .photos {
-  position: relative;
-  width: 100%; }
+  position: absolute;
+  width: 100%;
+  height: 100%; }
 
 .carusel {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100%; }
 
 .spiner {
   -webkit-transform-style: preserve-3d;
@@ -58,11 +60,13 @@
       height: 100%;
       background-size: auto 100%;
       background-position: center;
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+      background-color: #e7a458; }
 
 .navigation {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  position: absolute; }
 
 .inside-navigation {
   display: -webkit-box;
@@ -387,7 +391,7 @@
       background-color: #e7a458;
       font-family: impact;
       overflow-y: auto;
-      max-height: 100%;
+      height: 100%;
       margin-top: 1rem; }
       .answers .content .list ul {
         display: -webkit-box;
